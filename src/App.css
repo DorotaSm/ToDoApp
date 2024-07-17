@@ -1,38 +1,346 @@
+/* Global styles for the entire application */
 .App {
-  text-align: center;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange children in a column */
+  min-height: 100vh; /* Minimum height of the viewport */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header styles */
+.header {
+  width: 100%; /* Full width */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Column layout for children */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  background: repeating-linear-gradient(
+    45deg,
+    #4f3ba9,
+    #4f3ba9 25%,
+    #ef32d9 25%,
+    #ef32d9 50%,
+    #45e6b5 50%,
+    #45e6b5 75%,
+    #ffd700 75%,
+    #ffd700
+  ); /* Background gradient */
+  background-size: cover; /* Cover background */
+  color: white; /* Text color */
+  padding: 20px; /* Padding around content */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  text-align: center; /* Center-align text */
+  font-size: 1.5rem; /* Font size */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Footer styles */
+.footer {
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  background: linear-gradient(to right, #7e69cc, #c457e4, #5ed0a5, #ffd57f, #4f3ba9); /* Gradient background */
+  color: white; /* Text color */
+  padding: 10px; /* Padding around content */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  position: fixed; /* Fixed position at the bottom */
+  width: 100%; /* Full width */
+  bottom: 0; /* Positioned at the bottom */
+  z-index: 10; /* Ensure it's above other elements */
+  font-size: 0.8rem; /* Font size */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Main content area */
+.content {
+  flex: 1; /* Take remaining vertical space */
+  padding: 1rem; /* Padding around content */
+  text-align: center; /* Center-align text */
 }
 
-.App-link {
-  color: #61dafb;
+/* Grid container for layout */
+.grid-container {
+  display: flex; /* Flexbox layout */
+  flex-wrap: wrap; /* Wrap items to next row */
+  gap: 10px; /* Gap between items */
+  justify-content: center; /* Center items horizontally */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Grid item styles */
+.grid-item {
+  padding: 10px; /* Padding around each item */
+  text-align: left; /* Left-align text */
+  min-width: 150px; /* Minimum width */
+  max-width: 300px; /* Maximum width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Modal content styles */
+.modal-content {
+  padding: 20px; /* Padding around content */
+}
+
+/* Modal body styles */
+.modal-body {
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Column layout for children */
+}
+
+/* Add space between inputs in modal body */
+.modal-body input,
+.modal-body .react-datetime-picker,
+.modal-body .dropdown {
+  margin-bottom: 10px; /* Bottom margin */
+}
+
+/* Date picker styles */
+.react-datetime-picker {
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding around content */
+}
+
+/* Modal footer styles */
+.modal-footer {
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space between items */
+  padding-top: 20px; /* Top padding */
+}
+
+/* Button styles in modal footer */
+.modal-footer button {
+  padding: 10px 20px; /* Padding around buttons */
+}
+
+/* Close button styles */
+button.close {
+  background: none; /* Transparent background */
+  border: none; /* No border */
+  font-size: 1.5rem; /* Font size */
+  font-weight: bold; /* Bold text */
+  color: #000; /* Text color */
+  opacity: 0.5; /* Semi-transparent */
+  position: absolute; /* Absolute positioning */
+  top: 15px; /* Position from top */
+  right: 15px; /* Position from right */
+}
+
+/* Close button hover effect */
+button.close:hover {
+  opacity: 1; /* Full opacity on hover */
+  color: #ff0000; /* Red text color on hover */
+}
+
+/* Modal styles */
+.modal {
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 100%; /* Full height */
+  margin: 0; /* No margin */
+  padding: 20px; /* Padding around content */
+}
+
+/* Modal dialog styles */
+.modal-dialog {
+  max-width: 90%; /* Maximum width of modal dialog */
+}
+
+/* Specific styles for modal content */
+.modal-content {
+  padding: 20px; /* Padding around content */
+  text-align: left; /* Left-align text */
+}
+
+/* Font import from Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+/* Custom button component styles */
+.button {
+  position: relative; /* Relative positioning */
+  padding: 1em 1.5em; /* Padding around content */
+  border: none; /* No border */
+  background-color: transparent; /* Transparent background */
+  cursor: pointer; /* Pointer cursor */
+  outline: none; /* No outline */
+  font-size: 18px; /* Font size */
+  margin: 1em 0.8em; /* Margin around button */
+  margin-top: 10px; /* Top margin */
+  padding: 10px 20px; /* Padding around content */
+}
+
+/* Styles for type 1 button */
+.button.type1 {
+  color: #ffff; /* White text color */
+}
+
+/* Before and after pseudo-elements for type 1 button */
+.button.type1::after,
+.button.type1::before {
+  content: ''; /* Empty content */
+  display: block; /* Block display */
+  position: absolute; /* Absolute positioning */
+  width: 20%; /* Width */
+  height: 20%; /* Height */
+  border: 2px solid; /* Border with thickness */
+  transition: all 0.6s ease; /* Smooth transition */
+  border-radius: 2px; /* Border radius */
+}
+
+/* After pseudo-element for type 1 button */
+.button.type1::after {
+  bottom: 0; /* Positioned at the bottom */
+  right: 0; /* Positioned at the right */
+  border-top-color: transparent; /* Transparent top border */
+  border-left-color: transparent; /* Transparent left border */
+  border-bottom-color: #3498db; /* Blue bottom border */
+  border-right-color: #3498db; /* Blue right border */
+}
+
+/* Before pseudo-element for type 1 button */
+.button.type1::before {
+  top: 0; /* Positioned at the top */
+  left: 0; /* Positioned at the left */
+  border-bottom-color: transparent; /* Transparent bottom border */
+  border-right-color: transparent; /* Transparent right border */
+  border-top-color: #3498db; /* Blue top border */
+  border-left-color: #3498db; /* Blue left border */
+}
+
+/* Hover effect for type 1 button */
+.button.type1:hover::after,
+.button.type1:hover::before {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+}
+
+/* Add task button styles */
+.add-task-button {
+  border: none; /* No border */
+  background: none; /* Transparent background */
+  cursor: pointer; /* Pointer cursor */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center content vertically */
+  padding: 0; /* No padding */
+}
+
+/* Plus icon styles */
+.plus-icon {
+  margin-right: 5px; /* Right margin */
+}
+
+/* Button text opacity transition */
+.button-text {
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth opacity transition */
+}
+
+/* Button text opacity on hover */
+.add-task-button:hover .button-text {
+  opacity: 1; /* Full opacity on hover */
+}
+
+/* Container for buttons */
+.button-container {
+  display: flex; /* Flexbox layout */
+  gap: 10px; /* Gap between buttons */
+}
+
+/* Delete and toggle button styles */
+.delete-button,
+.toggle-button {
+  background: none; /* Transparent background */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center content vertically */
+  color: #333; /* Text color */
+  font-size: 16px; /* Font size */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect for delete and toggle buttons */
+.delete-button:hover,
+.toggle-button:hover {
+  color: #4F3BA9; /* Purple text color on hover */
+}
+
+/* Hover text styles */
+.delete-button .hover-text,
+.toggle-button .hover-text {
+  margin-left: 5px; /* Left margin */
+}
+
+/* Focus styles for delete and toggle buttons */
+.delete-button:focus,
+.toggle-button:focus {
+  outline: none; /* No outline on focus */
+}
+
+/* Task list styles */
+.task-list {
+  list-style-type: none; /* No list style */
+  padding-top: 15px; /* Top padding */
+}
+
+/* Task item styles */
+.task-item {
+  padding: 20px; /* Padding around each item */
+  margin-bottom: 20px; /* Bottom margin */
+  border: 1px solid #5ed0a5; /* Border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+  transition: transform 0.3s ease-in-out; /* Smooth transform transition */
+}
+
+/* Hover effect for task item */
+.task-item:hover {
+  transform: translateY(-5px); /* Move up on hover */
+}
+
+/* Task header styles */
+.task-header {
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center items vertically */
+}
+
+/* Task actions styles */
+.task-actions {
+  display: flex; /* Flexbox layout */
+  gap: 10px; /* Gap between items */
+}
+
+/* Task details styles */
+.task-details {
+  margin-top: 10px; /* Top margin */
+}
+
+/* Task description styles */
+.task-description {
+  margin-bottom: 5px; /* Bottom margin */
+}
+
+/* Task priority and due date styles */
+.task-priority,
+.task-due-date {
+  margin-bottom: 5px; /* Bottom margin */
+  font-style: italic; /* Italic text */
+}
+
+/* Task actions styles */
+.task-actions {
+  display: flex; /* Flexbox layout */
+  gap: 10px; /* Gap between items */
+}
+
+/* Edit and delete button styles */
+.edit-button,
+.delete-button {
+  background: none; /* Transparent background */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor */
+  font-size: 1rem; /* Font size */
+  color: #555; /* Text color */
+}
+
+/* Hover effect for edit and delete buttons */
+.edit-button:hover,
+.delete-button:hover {
+  color: #f44336; /* Red text color on hover */
 }
